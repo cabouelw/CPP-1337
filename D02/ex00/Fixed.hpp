@@ -6,21 +6,27 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:18:53 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/12 13:34:09 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/10/17 14:39:27 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
 #include <iostream>
 
 class Fixed
 {
-public:
-	int	value;
-	static int	nb_fract;
 private:
+	int	_value;
+	static const int	_nb_fract = 8;
+public:
 	Fixed();
 	~Fixed();
-	Fixed(int	cp_value);
-	int getRawBits( void );
-	void setRawBits( int const raw );
+	Fixed	&operator=(const Fixed &);
+	Fixed(const Fixed& copy);
+
+	int getRawBits() const;
+	void setRawBits(int const raw);
 };
+
+#endif
