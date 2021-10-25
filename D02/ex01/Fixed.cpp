@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/22 16:54:02 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/10/23 15:12:49 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Fixed   &Fixed::operator=(const Fixed &val)
 
 Fixed::Fixed()
 {
-	this->_value = 0;
 	std::cout << "Default constructor called\n";
+	this->_value = 0;
 }
 
 Fixed::Fixed(const Fixed& copy)
