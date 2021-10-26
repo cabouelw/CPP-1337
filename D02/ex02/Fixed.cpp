@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/25 16:33:43 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:10:50 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Fixed::Fixed()
 
 Fixed::Fixed(const Fixed& copy)
 {
-	this->_value = copy._nb_fract;
 	*this = copy;
 }
 
