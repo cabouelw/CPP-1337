@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/25 17:10:50 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:35:23 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ Fixed	&Fixed::operator+(const Fixed &val)
 
 Fixed	Fixed::operator++(int)
 {
-	Fixed	tmp = *this;
+	Fixed	tmp{*this};
 	this->_value++;
 	return (tmp);
 }
@@ -130,7 +130,7 @@ Fixed	&Fixed::operator++()
 
 Fixed	Fixed::operator--(int)
 {
-	Fixed	tmp = *this;
+	Fixed	tmp{*this};
 	this->_value--;
 	return (tmp);
 }
