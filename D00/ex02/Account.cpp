@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 13:21:37 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/29 20:38:44 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/10/30 17:19:45 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ Account::Account(int initial_deposit)
 
 Account::~Account(void)
 {
-	std::cout << "[" << buf << "] index:" << _accountIndex << ";amount:" << _amount << ";closed";
-	if (_accountIndex)
-		std::cout << std::endl;
+	std::cout << "[" << buf << "] index:" << _accountIndex << ";amount:" << _amount << ";closed\n";
 }
 
 void	Account::makeDeposit( int deposit )

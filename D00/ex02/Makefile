@@ -6,11 +6,11 @@
 #    By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/23 13:19:24 by cabouelw          #+#    #+#              #
-#    Updated: 2021/09/24 13:21:33 by cabouelw         ###   ########.fr        #
+#    Updated: 2021/10/30 17:18:25 by cabouelw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = PhoneBook
+NAME = Bank
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 SRC =	Account.cpp\

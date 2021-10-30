@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:43:23 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/09/24 12:51:04 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/10/30 17:14:50 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,43 +63,36 @@ void	Contacts::add(void)
 	std::cout << "Darkest Secret :";
 	getline(std::cin, Contacts::dark);
 }
+
+void	print(std::string str)
+{
+	int i;
+
+	i = 0;
+	while (i < 9)
+	{
+		std::cout << str[i];
+		i++;
+	}
+	std::cout << ".|";
+}
+
 void	Contacts::search(int idx)
 {
-	int i = 0;
 	std::cout << "|" << std::setw(10) << idx << "|";
 	if (Contacts::p_nom.length() < 11)
 		std::cout << std::setw(10) << Contacts::p_nom << "|";
 	else
-	{
-		while (i < 9)
-		{
-			std::cout << Contacts::p_nom[i];
-			i++;
-		}
-		std::cout << ".|";
-	}
+		print(p_nom);
 	if (Contacts::nom.length() < 11)
 		std::cout << std::setw(10) << Contacts::nom << "|";
 	else
-	{
-		i = 0;
-		while (i < 9)
-		{
-			std::cout << Contacts::nom[i];
-			i++;
-		}
-		std::cout << ".|";
-	}
+		print(nom);
 	if (Contacts::nick.length() < 11)
 		std::cout << std::setw(10) << Contacts::nick << "|" << std::endl;
 	else
 	{
-		i = 0;
-		while (i < 9)
-		{
-			std::cout << Contacts::nick[i];
-			i++;
-		}
-		std::cout << ".|" << std::endl;
+		print(nick);
+		std::cout << std::endl;
 	}
 }
