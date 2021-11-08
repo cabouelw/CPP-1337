@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:43:23 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/30 17:14:50 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/08 09:05:02 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	Contacts::display()
 	std::cout << "Darkest Secret :" << Contacts::dark << std::endl;
 }
 
-std::string	check(std::string	tmp)
+std::string	check(std::string	&tmp)
 {
 	int	i;
 
@@ -52,47 +52,44 @@ void	Contacts::add(void)
 	std::string	tmp;
 
 	std::cout << "First Name :";
-	getline(std::cin, Contacts::p_nom);
+	get_line(Contacts::p_nom);
 	std::cout << "Last Name :";
-	getline(std::cin, Contacts::nom);
+	get_line(Contacts::nom);
 	std::cout << "NickName :";
-	getline(std::cin, Contacts::nick);
+	get_line(Contacts::nick);
 	std::cout << "Phone Number :";
-	getline(std::cin, tmp);
+	get_line(tmp);
 	Contacts::nmbr = check(tmp);
 	std::cout << "Darkest Secret :";
-	getline(std::cin, Contacts::dark);
+	get_line(Contacts::dark);
 }
 
-void	print(std::string str)
+void print_plus(std::string str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (i < 9)
+	
+	if (str.length() < 10)
+		std::cout << std::setw((10 - str.length()) + 1);
+	while (str.c_str()[i] && i < 9)
 	{
-		std::cout << str[i];
+		if (str.c_str()[i] != '\t')
+			std::cout << str.c_str()[i];
+		else
+			std::cout << " ";
 		i++;
 	}
-	std::cout << ".|";
+	if (str.length() > 9)
+		std::cout << ".";
+	std::cout << "|";
 }
 
 void	Contacts::search(int idx)
 {
 	std::cout << "|" << std::setw(10) << idx << "|";
-	if (Contacts::p_nom.length() < 11)
-		std::cout << std::setw(10) << Contacts::p_nom << "|";
-	else
-		print(p_nom);
-	if (Contacts::nom.length() < 11)
-		std::cout << std::setw(10) << Contacts::nom << "|";
-	else
-		print(nom);
-	if (Contacts::nick.length() < 11)
-		std::cout << std::setw(10) << Contacts::nick << "|" << std::endl;
-	else
-	{
-		print(nick);
-		std::cout << std::endl;
-	}
+	print_plus(p_nom);
+	print_plus(nom);
+	print_plus(nick);
+	std::cout << std::endl;
 }

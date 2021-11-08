@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contacts.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 14:54:55 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/08 09:05:11 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/01 11:00:08 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/01 12:06:58 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COMTACTS_H
-#define COMTACTS_H
-
+#ifndef FIXED_HPP
+# define FIXED_HPP
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 
-class Contacts
+class ClapTrap
 {
-	std::string	nom;
-	std::string	p_nom;
-	std::string	nick;
-	std::string	nmbr;
-	std::string	dark;
-public:
-	Contacts(void);
-	~Contacts(void);
-	void	add();
-	void	search(int idx);
-	void	display();
-};
+private:
+	std::string	_name;
+	int	_hitpoints;
+	int	_energy_point;
+	int	_attack_damage;
 
-void	get_line(std::string	&);
-std::string	check(std::string	&);
+public:
+	ClapTrap();
+	~ClapTrap();
+	ClapTrap(const char*);
+
+	int			get_hit(int);
+	int			energy(int);
+	int			damage(int);
+	std::string	get_name() const;
+
+	void	attack(std::string const &);
+	void	takeDamage(unsigned int);
+	void	beRepaired(unsigned int);
+};
 
 #endif

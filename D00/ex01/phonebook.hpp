@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:35:26 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/09/26 14:57:53 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:48:41 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ public:
 	void	add(int nb);
 	void	display(int idx);
 };
-
 #endif

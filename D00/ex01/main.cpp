@@ -6,11 +6,25 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:42:50 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/30 12:59:13 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/08 09:21:55 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+void	get_line(std::string	&input)
+{
+	if (!getline(std::cin, input))
+		exit(1);
+	std::size_t found = 0;
+	found = input.find("\t", found, input.length());
+	while (found != std::string::npos)
+	{
+		input.erase(found, 1);
+		input.insert(found, "    ");
+		found = input.find("\t", found + 3, input.length());
+	}
+}
 
 void	search(int	i, bool full, Phonebook &phone)
 {
@@ -21,8 +35,8 @@ void	search(int	i, bool full, Phonebook &phone)
 	else
 		phone.search(i);
 	std::cout << "input Wich index: ";
-	getline(std::cin, input);
-	if ((stoi(input) < i || full) && stoi(input) < 8)
+	get_line(input);
+	if (isdigit(input.c_str()[0]) && (stoi(input) < i || full) && stoi(input) < 8)
 		phone.display(stoi(input));
 	else
 	{
