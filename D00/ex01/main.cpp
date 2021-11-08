@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:42:50 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/08 09:21:55 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/08 12:10:29 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ int	main(void)
 			i++;
 		}
 		else if (input == "SEARCH")
-			search(i, full, phone);
+		{
+			if ((i != 0 && !full) || full)
+				search(i, full, phone);
+		}
 		else if (input == "EXIT")
 			exit(0);
 		else

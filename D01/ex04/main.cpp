@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 12:45:35 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/02 14:04:52 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:13:00 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ void	replace(char **&av, std::ifstream& or_file, std::string&	filename)
 	re_File.close();
 }
 
+int	ft_error(std::string err)
+{
+	std::cout << err << std::endl;
+	return (1);
+}
+
 int main (int ac, char **av)
 {
 	std::ifstream or_file;
@@ -47,9 +53,11 @@ int main (int ac, char **av)
 	
 
 	if (ac != 4 || av[2][0] == '\0' || av[2][0] == '\0')
-		return (1);
+		return (ft_error("args!!"));
 	or_file.open (av[1]);
+	if (!or_file.is_open())
+		return (ft_error("File Permission denied!"));
 	filename = av[1];
 	replace(av, or_file, filename);
-	return 0;
+	return (0);
 }
