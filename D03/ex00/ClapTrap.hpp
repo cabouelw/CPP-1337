@@ -6,12 +6,12 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:00:08 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/01 12:06:58 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/09 12:34:19 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 #include <iostream>
 #include <string>
 
@@ -26,8 +26,10 @@ private:
 
 public:
 	ClapTrap();
+	ClapTrap(const ClapTrap&);
+	ClapTrap& operator=(const ClapTrap&);
+	ClapTrap(std::string);
 	~ClapTrap();
-	ClapTrap(const char*);
 
 	int			get_hit(int);
 	int			energy(int);

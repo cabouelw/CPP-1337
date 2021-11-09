@@ -6,25 +6,41 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:59:56 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/01 12:07:37 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/09 12:14:29 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("ClapTrap"), _hitpoints(10), _energy_point(10), _attack_damage(0)
+ClapTrap::ClapTrap() : _hitpoints(10), _energy_point(10), _attack_damage(0)
 {
-	std::cout << "Default constructor called\n";
+	std::cout << "ClapTrap Default constructor called\n";
+}
+
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energy_point(10), _attack_damage(0)
+{
+	std::cout << "ClapTrap constructor called\n";
+}
+
+ClapTrap::ClapTrap(const ClapTrap& cpy)
+{
+	*this = cpy; 
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& cpy)
+{
+	if (this == &cpy)
+		return (*this);
+	this->_name = cpy._name;
+	this->_hitpoints = cpy._hitpoints;
+	this->_energy_point = cpy._energy_point;
+	this->_attack_damage = cpy._attack_damage;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Deconstructor called\n";
-}
-
-ClapTrap::ClapTrap(const char *name) : _name(name), _hitpoints(10), _energy_point(10), _attack_damage(0)
-{
-	std::cout << "constructor called\n";
+	std::cout << "ClapTrap Deconstructor called\n";
 }
 
 void	ClapTrap::attack(std::string const &target)

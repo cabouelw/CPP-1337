@@ -5,21 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 16:57:03 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/08 20:06:12 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/09 13:27:24 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "DiamondTrap.hpp"
 
-int	main(void)
+int	main()
 {
-	Karen	karen;
+	DiamondTrap d_trap;
+	std::cout << std::endl;
+	DiamondTrap d_trap1("F-Z");
+	std::cout << std::endl;
+	DiamondTrap d_trap2(d_trap1);
+	std::cout << std::endl;
 
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
-	karen.complain("ERROR---");
-	return (0);
+
+	d_trap = d_trap2;
+	std::cout << std::endl;
+
+	d_trap.attack("flan");
+	std::cout << std::endl;
+	d_trap.guardGate();
+	std::cout << std::endl;
+	d_trap.whoAmI();
 }

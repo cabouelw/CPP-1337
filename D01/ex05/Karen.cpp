@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 13:00:25 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/03 17:19:12 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/08 20:05:26 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,14 @@ void Karen::error( void )
 
 void    Karen::complain( std::string level )
 {
-	void	(Karen::*ptr_debug)();
-	void	(Karen::*ptr_info)();
-	void	(Karen::*ptr_warning)();
-	void	(Karen::*ptr_error)();
-	ptr_debug = &Karen::debug;
-	ptr_info = &Karen::info;
-	ptr_warning = &Karen::warning;
-	ptr_error = &Karen::error;
+	void	(Karen::*ptr[4])();
+	ptr[0] = &Karen::debug;
+	ptr[1] = &Karen::info;
+	ptr[2] = &Karen::warning;
+	ptr[3] = &Karen::error;
 	std::string tab[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int	i = 0;
 	while (i < 4 && tab[i] != level)
 		i++;
-	switch (i)
-	{
-		case 0:
-			(this->*ptr_debug)();
-			break;
-		case 1:
-			(this->*ptr_info)();
-			break;
-		case 2:
-			(this->*ptr_warning)();
-			break;
-		case 3:
-			(this->*ptr_error)();
-			break;
-		default:
-			break;
-	}
+	(i < 4) ? (this->*ptr[i])() : (void)i;
 }

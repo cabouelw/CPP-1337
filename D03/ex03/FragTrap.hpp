@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 16:57:03 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/08 20:06:12 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/09 12:16:19 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/09 13:00:19 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "ClapTrap.hpp"
 
-int	main(void)
+class FragTrap : virtual public ClapTrap
 {
-	Karen	karen;
+	public:
+		FragTrap();
+		FragTrap(std::string);
+		FragTrap(const FragTrap&);
+		FragTrap& operator=(const FragTrap&);
+		~FragTrap();
+		void	highFivesGuys(void);
+};
 
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
-	karen.complain("ERROR---");
-	return (0);
-}
+

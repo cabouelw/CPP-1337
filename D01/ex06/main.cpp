@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 16:57:03 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/03 17:18:07 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/08 19:46:33 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (1);
-	
 	karen.complain(av[1]);
 	return (0);
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 16:57:03 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/08 20:06:12 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/09 10:57:21 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/09 12:35:17 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
 
-int	main(void)
+class ScavTrap : public ClapTrap
 {
-	Karen	karen;
+	public:
+		ScavTrap();
+		ScavTrap(std::string);
+		ScavTrap(const ScavTrap&);
+		ScavTrap& operator=(const ScavTrap&);
+		~ScavTrap();
+		void	guardGate();
+};
 
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
-	karen.complain("ERROR---");
-	return (0);
-}
+#endif

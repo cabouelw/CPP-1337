@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 16:57:03 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/08 20:06:12 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/09 12:33:04 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/09 13:09:01 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-int	main(void)
+class DiamondTrap : public FragTrap, public ScavTrap
 {
-	Karen	karen;
+	private:
+		std::string	_diam_name;
+	public:
+	DiamondTrap();
+	DiamondTrap(std::string);
+	DiamondTrap(const DiamondTrap&);
+	DiamondTrap& operator=(const DiamondTrap&);
+	~DiamondTrap();
+	void	whoAmI();
+	void	attack(std::string const &);
+};
 
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
-	karen.complain("ERROR---");
-	return (0);
-}
+#endif
