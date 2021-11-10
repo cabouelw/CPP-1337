@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 16:44:09 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/10 12:48:28 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/10 16:37:52 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "cure.hpp"
 
-int	main()
+Cure::Cure() : AMateria("cure")
 {
-	DiamondTrap d_trap;
-	std::cout << std::endl;
-	DiamondTrap d_trap1("F-Z");
-	std::cout << std::endl;
-	DiamondTrap d_trap2(d_trap1);
-	std::cout << std::endl;
-
-	d_trap = d_trap2;
-	std::cout << std::endl;
-
-	d_trap.attack("flan");
-	std::cout << std::endl;
-	d_trap.guardGate();
-	std::cout << std::endl;
-	d_trap.whoAmI();
 }
+
+Cure& Cure::operator=(const Cure &cpy)
+{
+	if (this == &cpy)
+		return (*this);
+	this->_type = cpy._type;
+	return (*this);
+}
+
+Cure::Cure(const Cure &cpy)
+{
+	*this = cpy;
+}
+
+Cure::~Cure()
+{
+}
+
+AMateria* Cure::clone() const
+{
+	return (new Cure());
+}
+
+// void Cure::use(ICharacter& target)
+// {
+// 	std::cout << "* shoots an ice bolt at " << target << " *\n";
+// }

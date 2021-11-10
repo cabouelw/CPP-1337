@@ -5,28 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 16:44:09 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/10 12:45:46 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/10 12:46:20 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "character.hpp"
+#include "amateria.hpp"
 
-int	main()
+int main()
 {
-	DiamondTrap d_trap;
-	std::cout << std::endl;
-	DiamondTrap d_trap1("F-Z");
-	std::cout << std::endl;
-	DiamondTrap d_trap2(d_trap1);
-	std::cout << std::endl;
-
-	d_trap = d_trap2;
-	std::cout << std::endl;
-
-	d_trap.attack("flan");
-	std::cout << std::endl;
-	d_trap.guardGate();
-	std::cout << std::endl;
-	d_trap.whoAmI();
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
 }

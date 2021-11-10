@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 16:44:09 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/10 09:16:32 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/10 12:21:36 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
+#include "animal.hpp"
+#include "brain.hpp"
 
-int	main()
+class Cat : public Animal
 {
-	DiamondTrap d_trap;
-	std::cout << std::endl;
-	DiamondTrap d_trap1("F-Z");
-	std::cout << std::endl;
-	DiamondTrap d_trap2(d_trap1);
-	std::cout << std::endl;
+	private:
+		Brain *_brain;
+	public:
+		Cat();
+		~Cat();
+		Cat& operator=(const Cat&);
+		Cat(const Cat&);
+		virtual	void	makeSound() const;
+		void	printideas();
+};
 
-	d_trap = d_trap2;
-	std::cout << std::endl;
-
-	d_trap.attack("flan");
-	std::cout << std::endl;
-	d_trap.guardGate();
-	std::cout << std::endl;
-	d_trap.whoAmI();
-}
+#endif

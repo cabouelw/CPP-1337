@@ -5,28 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 16:44:09 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/10 09:06:11 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/10 11:51:43 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "cat.hpp"
+#include "dog.hpp"
+#include "animal.hpp"
+#include "wronganimal.hpp"
+#include "wrongcat.hpp"
 
-int	main()
+
+int main()
 {
-	DiamondTrap d_trap;
-	std::cout << std::endl;
-	DiamondTrap d_trap1("F-Z");
-	std::cout << std::endl;
-	DiamondTrap d_trap2(d_trap1);
-	std::cout << std::endl;
-
-	d_trap = d_trap2;
-	std::cout << std::endl;
-
-	d_trap.attack("flan");
-	std::cout << std::endl;
-	d_trap.guardGate();
-	std::cout << std::endl;
-	d_trap.whoAmI();
+	Animal *animal[4];
+	int	i;
+	i = 0;
+	while (i < 4)
+	{
+		if (i % 2)
+			animal[i] = new Cat();
+		else
+			animal[i] = new Dog();
+		i++;
+	}
+	std::cout << "\n";
+	i = 0;
+	while (i < 4)
+		animal[i++]->makeSound();
+	std::cout << "\n";
+	i = 0;
+	while (i < 4)
+		delete animal[i++];
+		
+	Cat cat3;
+	{
+		Cat cat1;
+		std::cout << "\n";
+		cat3 = cat1;
+		std::cout << "\n";
+	}
+	std::cout << "\n";
+	cat3.printideas();
 }

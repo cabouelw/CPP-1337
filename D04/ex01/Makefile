@@ -6,15 +6,20 @@
 #    By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/25 17:55:14 by cabouelw          #+#    #+#              #
-#    Updated: 2021/11/09 18:55:44 by cabouelw         ###   ########.fr        #
+#    Updated: 2021/11/10 11:55:19 by cabouelw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =  Fixed
+NAME =  Barin
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 SRC =	main.cpp\
-		Fixed.cpp\
+		animal.cpp\
+		cat.cpp\
+		wrongcat.cpp\
+		wronganimal.cpp\
+		dog.cpp\
+		brain.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 

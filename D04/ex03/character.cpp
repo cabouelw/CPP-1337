@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 16:44:09 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/10 12:39:13 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/10 16:52:58 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "character.hpp"
 
-int	main()
+Character::Character(std::string name) : _name(name), idx(0)
 {
-	DiamondTrap d_trap;
-	std::cout << std::endl;
-	DiamondTrap d_trap1("F-Z");
-	std::cout << std::endl;
-	DiamondTrap d_trap2(d_trap1);
-	std::cout << std::endl;
+}
 
-	d_trap = d_trap2;
-	std::cout << std::endl;
+Character::~Character()
+{
+}
 
-	d_trap.attack("flan");
-	std::cout << std::endl;
-	d_trap.guardGate();
-	std::cout << std::endl;
-	d_trap.whoAmI();
+std::string const &Character::getName() const
+{
+	return (this->_name);
+}
+
+void Character::equip(AMateria* mat)
+{
+	if (idx == 4)
+		return;
+	this->inventory[this->idx] = mat;
+	idx++;
+}
+
+void Character::unequip(int idx)
+{
+	
 }

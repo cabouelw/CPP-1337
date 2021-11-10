@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 16:44:09 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/10 12:47:56 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/10 16:37:59 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "ice.hpp"
 
-int	main()
+Ice::Ice() : AMateria("ice")
 {
-	DiamondTrap d_trap;
-	std::cout << std::endl;
-	DiamondTrap d_trap1("F-Z");
-	std::cout << std::endl;
-	DiamondTrap d_trap2(d_trap1);
-	std::cout << std::endl;
-
-	d_trap = d_trap2;
-	std::cout << std::endl;
-
-	d_trap.attack("flan");
-	std::cout << std::endl;
-	d_trap.guardGate();
-	std::cout << std::endl;
-	d_trap.whoAmI();
 }
+
+Ice& Ice::operator=(const Ice &cpy)
+{
+	if (this == &cpy)
+		return (*this);
+	this->_type = cpy._type;
+	return (*this);
+}
+
+Ice::Ice(const Ice &cpy)
+{
+	*this = cpy;
+}
+
+Ice::~Ice()
+{
+}
+
+AMateria* Ice::clone() const
+{
+	return (new Ice());
+}
+
+// void Ice::use(ICharacter& target)
+// {
+// 	std::cout << "* shoots an ice bolt at " << target << " *\n";
+// }

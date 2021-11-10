@@ -6,18 +6,12 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/17 14:40:03 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/09 14:30:49 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed   &Fixed::operator=(const Fixed &val)
-{
-	std::cout << "Assignation constructor called\n";
-	this->_value = val.getRawBits();
-	return (*this);
-}
 
 Fixed::Fixed()
 {
@@ -29,6 +23,15 @@ Fixed::Fixed(const Fixed& copy)
 {
 	std::cout << "Copy constructor called\n";
 	this->_value = copy.getRawBits();
+}
+
+Fixed   &Fixed::operator=(const Fixed &val)
+{
+	std::cout << "Assignation constructor called\n";
+	if (this == &val)
+		return (*this);
+	this->_value = val.getRawBits();
+	return (*this);
 }
 
 Fixed::~Fixed()

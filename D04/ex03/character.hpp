@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 16:44:09 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/10 15:27:45 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/10 16:48:23 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
+#include <string>
+#include <iostream>
+#include "icharacter.hpp"
 
-int	main()
+class AMateria;
+
+class Character : public ICharacter
 {
-	DiamondTrap d_trap;
-	std::cout << std::endl;
-	DiamondTrap d_trap1("F-Z");
-	std::cout << std::endl;
-	DiamondTrap d_trap2(d_trap1);
-	std::cout << std::endl;
+	private:
+		AMateria *inventory[4];
+		std::string	_name;
+		int			idx;
+	public:
+		Character(std::string);
+		~Character();
+		std::string const &getName() const;
+		void equip(AMateria*);
+		void unequip(int);
+		void use(int, ICharacter&);
+};
 
-	d_trap = d_trap2;
-	std::cout << std::endl;
-
-	d_trap.attack("flan");
-	std::cout << std::endl;
-	d_trap.guardGate();
-	std::cout << std::endl;
-	d_trap.whoAmI();
-}
+#endif
