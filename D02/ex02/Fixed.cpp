@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/28 13:35:23 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/11 11:21:25 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed(const Fixed& copy)
 
 Fixed::Fixed(const int &val)
 {
-	this->_value = val * (1 << _nb_fract);
+	this->_value = val << _nb_fract;
 }
 
 Fixed::Fixed(const float &val)
@@ -69,103 +69,78 @@ Fixed	&Fixed::operator=(const Fixed &val)
 
 bool	Fixed::operator<(const Fixed &last) const
 {
-	if (this->toFloat() < last.toFloat())
-		return (true);
-	return (false);
+	return (this->_value < last._value);
 }
 
 bool	Fixed::operator>(const Fixed &last) const
 {
-	if (this->toFloat() > last.toFloat())
-		return (true);
-	return (false);
+	return (this->_value > last._value);
 }
 
 bool	Fixed::operator>=(const Fixed &last) const
 {
-	if (this->toFloat() >= last.toFloat())
-		return (true);
-	return (false);
+	return (this->_value >= last._value);
 }
 
 bool	Fixed::operator<=(const Fixed &last) const
 {
-	if (this->toFloat() <= last.toFloat())
-		return (true);
-	return (false);
+	return (this->_value <= last._value);
 }
 
 bool	Fixed::operator==(const Fixed &last) const
 {
-	if (this->toFloat() == last.toFloat())
-		return (true);
-	return (false);
+	return (this->_value == last._value);
 }
 
 bool	Fixed::operator!=(const Fixed &last) const
 {
-	if (this->toFloat() != last.toFloat())
-		return (true);
-	return (false);
-}
-
-Fixed	&Fixed::operator+(const Fixed &val)
-{
-	this->_value += val._value;
-	return (*this);
+	return (this->_value != last._value);
 }
 
 Fixed	Fixed::operator++(int)
 {
-	Fixed	tmp{*this};
-	this->_value++;
+	Fixed	tmp(*this);
+	this->_value += (1 << _nb_fract);
 	return (tmp);
 }
 
-Fixed	&Fixed::operator++()
+Fixed	Fixed::operator++()
 {
-	this->_value++;
+	this->_value += (1 << _nb_fract);
 	return (*this);
 }
 
 Fixed	Fixed::operator--(int)
 {
-	Fixed	tmp{*this};
-	this->_value--;
+	Fixed	tmp(*this);
+	this->_value -= (1 << _nb_fract);
 	return (tmp);
 }
 
-Fixed	&Fixed::operator--()
+Fixed	Fixed::operator--()
 {
-	this->_value -= 1;
-	return (*this);
-}
-Fixed	&Fixed::operator-(const Fixed &val)
-{
-	this->_value -= val._value;
+	this->_value -= (1 << _nb_fract);
 	return (*this);
 }
 
-Fixed	&Fixed::operator*(const Fixed &val)
+Fixed	Fixed::operator+(const Fixed &val)
 {
-	float n1;
-	float n2;
-
-	n1 = this->toFloat();
-	n2 = val.toFloat();
-	this->_value = roundf((n1 * n2) * (1 << _nb_fract));
-	return (*this);
+	return (Fixed(this->toFloat() + val.toFloat()));
 }
 
-Fixed	&Fixed::operator/(const Fixed &val)
+Fixed	Fixed::operator-(const Fixed &val)
 {
-	float n1;
-	float n2;
+	return (Fixed(this->toFloat() - val.toFloat()));
+}
 
-	n1 = this->toFloat();
-	n2 = val.toFloat();
-	this->_value = roundf((n1 / n2) * (1 << _nb_fract));
-	return (*this);
+Fixed	Fixed::operator*(const Fixed &val)
+{
+	return (Fixed(this->toFloat() * val.toFloat()));
+}
+
+Fixed	Fixed::operator/(const Fixed &val) const
+{
+	return (Fixed((float)this->_value / val._value));
 }
 
 Fixed	&Fixed::max(Fixed &first, Fixed &last)

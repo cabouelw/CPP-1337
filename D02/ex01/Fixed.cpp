@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 21:14:33 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/10 21:50:43 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Fixed::Fixed(const Fixed& copy)
 Fixed::Fixed(const int &val)
 {
 	std::cout << "Int constructor called\n";
-	this->_value = val * (1 << _nb_fract);
+	this->_value = val << _nb_fract;
 }
 
 Fixed::Fixed(const float &val)
@@ -38,7 +38,7 @@ Fixed::Fixed(const float &val)
 
 Fixed   &Fixed::operator=(const Fixed &val)
 {
-	std::cout << "Assignation constructor called\n";
+	std::cout << "Assignation operator called\n";
 	if (this == &val)
 		return (*this);
 	this->_value = val._value;
@@ -75,3 +75,5 @@ std::ostream &operator<<(std::ostream &output, Fixed const &fixed)
 	output << fixed.toFloat();
 	return(output);
 }
+
+

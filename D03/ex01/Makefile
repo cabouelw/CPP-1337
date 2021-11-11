@@ -6,7 +6,7 @@
 #    By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/25 17:55:14 by cabouelw          #+#    #+#              #
-#    Updated: 2021/11/09 12:06:10 by cabouelw         ###   ########.fr        #
+#    Updated: 2021/11/11 11:31:22 by cabouelw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRC =	main.cpp\
 		ClapTrap.cpp\
 		ScavTrap.cpp
 
+INC = ScavTrap.hpp ClapTrap.hpp
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -24,8 +26,8 @@ all: $(NAME)
 $(NAME): $(OBJ) 
 	@$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
-	@$(CC) $(CFLAGS) -c $^ -o $@
+%.o: %.cpp $(INC)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ)

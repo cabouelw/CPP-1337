@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:18:53 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/10/25 14:52:24 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/11 10:14:29 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ public:
 	bool	operator==(const Fixed &) const;
 	bool	operator!=(const Fixed &) const;
 
-	Fixed	&operator+(const Fixed &);
-	Fixed	&operator-(const Fixed &);
-	Fixed	&operator*(const Fixed &);
-	Fixed	&operator/(const Fixed &);
+	Fixed	operator+(const Fixed &);
+	Fixed	operator-(const Fixed &);
+	Fixed	operator*(const Fixed &);
+	Fixed	operator/(const Fixed &) const;
 
 	Fixed	operator++(int);
-	Fixed	&operator++();
+	Fixed	operator++();
 	Fixed	operator--(int);
-	Fixed	&operator--();
+	Fixed	operator--();
 
 	float toFloat( void ) const;
 	int toInt( void ) const;
