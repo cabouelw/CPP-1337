@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:16:34 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 12:21:30 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:52:38 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cat.hpp"
+#include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat")
 {
@@ -45,7 +45,7 @@ Cat::Cat(const Cat &cpy)
 
 Cat::~Cat()
 {
-	std::cout << "Cat Deconstructor called\n";
+	std::cout << "Cat Destructor called\n";
 	delete _brain;
 }
 

@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/11 11:21:25 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/12 11:39:57 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,47 +100,53 @@ bool	Fixed::operator!=(const Fixed &last) const
 Fixed	Fixed::operator++(int)
 {
 	Fixed	tmp(*this);
-	this->_value += (1 << _nb_fract);
+	this->_value++;
 	return (tmp);
 }
 
 Fixed	Fixed::operator++()
 {
-	this->_value += (1 << _nb_fract);
+	this->_value++;
 	return (*this);
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed	tmp(*this);
-	this->_value -= (1 << _nb_fract);
+	this->_value--;
 	return (tmp);
 }
 
 Fixed	Fixed::operator--()
 {
-	this->_value -= (1 << _nb_fract);
+	this->_value--;
 	return (*this);
 }
 
 Fixed	Fixed::operator+(const Fixed &val)
 {
-	return (Fixed(this->toFloat() + val.toFloat()));
+	return (Fixed((this->_value + val._value) / (1 << this->_nb_fract)));
 }
 
 Fixed	Fixed::operator-(const Fixed &val)
 {
-	return (Fixed(this->toFloat() - val.toFloat()));
+	return (Fixed((this->_value - val._value) / (1 << this->_nb_fract)));
 }
 
 Fixed	Fixed::operator*(const Fixed &val)
 {
-	return (Fixed(this->toFloat() * val.toFloat()));
+	Fixed tmp;
+
+	tmp._value = this->_value * (val._value / (1 << (val._nb_fract)));
+	return (tmp);
 }
 
 Fixed	Fixed::operator/(const Fixed &val) const
 {
-	return (Fixed((float)this->_value / val._value));
+	Fixed	tmp;
+
+	tmp._value = (this->_value * (1 << (this->_nb_fract)) / val._value);
+	return (tmp);
 }
 
 Fixed	&Fixed::max(Fixed &first, Fixed &last)

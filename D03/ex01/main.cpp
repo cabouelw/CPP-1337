@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 12:12:54 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/13 14:51:06 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ int	main()
 	scav.beRepaired(10);
 	scav.guardGate();
 
-	trap.attack("petit");
-	trap.takeDamage(10);
-	trap.beRepaired(10);
-	trap.guardGate();
-
 	scav2.attack("petit");
 	scav2.takeDamage(10);
 	scav2.beRepaired(10);
@@ -43,4 +38,9 @@ int	main()
 	clap.attack("petit");
 	clap.takeDamage(10);
 	clap.beRepaired(10);
+
+	trap.attack("petit");
+	trap.takeDamage(10);
+	trap.beRepaired(10);
+	trap.guardGate();
 }

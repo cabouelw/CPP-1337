@@ -6,14 +6,14 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:16:13 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 12:21:43 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:53:16 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
-#include "animal.hpp"
-#include "brain.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {

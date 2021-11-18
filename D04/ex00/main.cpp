@@ -6,15 +6,15 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:06:11 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 10:48:17 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:46:06 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
-#include "animal.hpp"
-#include "wronganimal.hpp"
-#include "wrongcat.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "Animal.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 
 int main()

@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 12:48:28 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 16:37:52 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:59:37 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cure.hpp"
+#include "Cure.hpp"
 
 Cure::Cure() : AMateria("cure")
 {
@@ -38,7 +38,7 @@ AMateria* Cure::clone() const
 	return (new Cure());
 }
 
-// void Cure::use(ICharacter& target)
-// {
-// 	std::cout << "* shoots an ice bolt at " << target << " *\n";
-// }
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "’s wounds *\n";
+}

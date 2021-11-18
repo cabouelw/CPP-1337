@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:57:21 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 12:59:36 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/13 15:21:45 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap(const ScavTrap&);
 		ScavTrap& operator=(const ScavTrap&);
 		~ScavTrap();
+		void	set_value();
 		void	guardGate();
 };
 #endif

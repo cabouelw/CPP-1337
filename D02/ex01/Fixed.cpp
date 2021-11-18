@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 12:19:16 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 21:50:43 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 12:52:13 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Fixed   &Fixed::operator=(const Fixed &val)
 
 Fixed::~Fixed()
 {
-	std::cout << "Deconstructor called\n";
+	std::cout << "Destructor called\n";
 }
 
 int	Fixed::getRawBits()	const
@@ -58,6 +58,7 @@ int	Fixed::getRawBits()	const
 
 void Fixed::setRawBits(int const raw)
 {
+	std::cout << "setRawBits member function called\n";
 	this->_value = raw;
 }
 

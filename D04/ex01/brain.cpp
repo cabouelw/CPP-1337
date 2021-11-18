@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 10:52:57 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 11:36:25 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:50:30 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "brain.hpp"
+#include "Brain.hpp"
 
 Brain::Brain()
 {
@@ -26,6 +26,11 @@ Brain::Brain()
 void	Brain::printidea()
 {
 	std::cout << _ideas[0] << std::endl;
+}
+
+void	Brain::setidea(const std::string& idea)
+{
+	_ideas[0] = idea;
 }
 
 Brain& Brain::operator=(const Brain &cpy)
@@ -50,5 +55,5 @@ Brain::Brain(const Brain &cpy)
 
 Brain::~Brain()
 {
-	std::cout << "Brain Deconstructor called\n";
+	std::cout << "Brain Destructor called\n";
 }

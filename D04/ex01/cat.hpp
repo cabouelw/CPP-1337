@@ -6,14 +6,14 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:16:32 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 11:25:10 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:50:40 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
-#include "animal.hpp"
-#include "brain.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -26,6 +26,7 @@ class Cat : public Animal
 		Cat(const Cat&);
 		virtual	void	makeSound() const;
 		void	printideas();
+		void	setideas(const std::string& idea);
 };
 
 #endif

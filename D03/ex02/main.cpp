@@ -6,39 +6,39 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:00:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 12:12:54 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/13 15:00:57 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main()
 {
-	ScavTrap	trap("liFan");
-
-	ScavTrap	scav2(trap);
-
 	ClapTrap	clap("F-Z");
+	
+	FragTrap	frag("Abdo");
+	FragTrap	fragcpy(frag);
+	FragTrap	frag1;
+	
 
-	ScavTrap	scav;
 
+	frag1 = frag;
+	frag1.attack("petit");
+	frag1.takeDamage(10);
+	frag1.beRepaired(10);
+	frag1.highFivesGuys();
+	
+	frag.attack("petit");
+	frag.takeDamage(10);
+	frag.beRepaired(10);
+	frag1.highFivesGuys();
 
-	scav = trap;
-	scav.attack("petit");
-	scav.takeDamage(10);
-	scav.beRepaired(10);
-	scav.guardGate();
-
-	trap.attack("petit");
-	trap.takeDamage(10);
-	trap.beRepaired(10);
-	trap.guardGate();
-
-	scav2.attack("petit");
-	scav2.takeDamage(10);
-	scav2.beRepaired(10);
-	scav2.guardGate();
+	fragcpy.attack("petit");
+	fragcpy.takeDamage(10);
+	fragcpy.beRepaired(10);
+	frag1.highFivesGuys();
 
 	clap.attack("petit");
 	clap.takeDamage(10);

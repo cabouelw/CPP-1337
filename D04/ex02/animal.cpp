@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:07:07 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 12:22:20 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:51:56 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
+#include "Animal.hpp"
 
 Animal::Animal()
 {
@@ -40,7 +40,7 @@ Animal::Animal(const Animal &cpy)
 
 Animal::~Animal()
 {
-	std::cout << "Animal Deconstructor called\n";
+	std::cout << "Animal Destructor called\n";
 }
 
 std::string Animal::getType() const

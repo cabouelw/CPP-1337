@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:59:56 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/09 12:07:07 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 12:52:13 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& cpy)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap Deconstructor called\n";
+	std::cout << "ClapTrap Destructor called\n";
 }
 
 void	ClapTrap::attack(std::string const &target)

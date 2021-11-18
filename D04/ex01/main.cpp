@@ -6,16 +6,15 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:06:11 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 11:51:43 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:51:15 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
-#include "animal.hpp"
-#include "wronganimal.hpp"
-#include "wrongcat.hpp"
-
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "Animal.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -39,13 +38,18 @@ int main()
 	while (i < 4)
 		delete animal[i++];
 		
+	std::cout << "\n";
 	Cat cat3;
 	{
 		Cat cat1;
 		std::cout << "\n";
+		cat1.printideas();
+		cat3.printideas();
 		cat3 = cat1;
+		cat1.setideas("HaHa");
 		std::cout << "\n";
+		cat1.printideas();
+		cat3.printideas();
 	}
 	std::cout << "\n";
-	cat3.printideas();
 }

@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 10:31:47 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 10:43:31 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:51:29 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wrongcat.hpp"
+#include "WrongCat.hpp"
 
 WrongCat::WrongCat() : WrongAnimal("Cat")
 {
@@ -34,7 +34,7 @@ WrongCat::WrongCat(const WrongCat &cpy)
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat Deconstructor called\n";
+	std::cout << "WrongCat Destructor called\n";
 }
 
 void	WrongCat::makeSound() const

@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:16:34 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 12:07:41 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:50:39 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cat.hpp"
+#include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat")
 {
@@ -35,17 +35,21 @@ void	Cat::printideas()
 	_brain->printidea();
 }
 
+void	Cat::setideas(const std::string& idea)
+{
+	_brain->setidea(idea);
+}
+
 Cat::Cat(const Cat &cpy)
 {
 	std::cout << "Cat Copy constructor called\n";
-	this->_brain = nullptr;
 	*this = cpy;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat Deconstructor called\n";
 	delete _brain;
+	std::cout << "Cat Destructor called\n";
 }
 
 void	Cat::makeSound() const

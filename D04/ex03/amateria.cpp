@@ -6,15 +6,14 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 12:30:23 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 16:33:33 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 14:07:34 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "amateria.hpp"
+#include "Amateria.hpp"
 
 AMateria::AMateria()
 {
-	this->_type = "???";
 }
 
 AMateria::AMateria(std::string const &type) : _type(type)
@@ -43,3 +42,7 @@ std::string const &AMateria::getType() const
 	return (_type);
 }
 
+void	AMateria::use(ICharacter& target)
+{
+	std::cout << "??? " << target.getName() << "\n";
+}

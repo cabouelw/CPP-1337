@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 09:15:56 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 12:21:39 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:53:01 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dog.hpp"
+#include "Dog.hpp"
 
 Dog::Dog() : Animal("Dog")
 {
@@ -35,7 +35,7 @@ Dog::Dog(const Dog &cpy)
 
 Dog::~Dog()
 {
-	std::cout << "Dog Deconstructor called\n";
+	std::cout << "Dog Destructor called\n";
 	delete _brain;
 }
 

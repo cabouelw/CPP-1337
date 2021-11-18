@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 12:30:34 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 16:42:33 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/16 14:07:34 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define AMATERIA_HPP
 #include <string>
 #include <iostream>
+#include "ICharacter.hpp"
 
 class ICharacter;
-
 class AMateria
 {
 	protected:

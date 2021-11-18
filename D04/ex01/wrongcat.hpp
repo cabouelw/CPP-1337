@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:32:03 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 10:41:11 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/16 13:49:13 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/16 13:51:35 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
-#include "wronganimal.hpp"
+#include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {

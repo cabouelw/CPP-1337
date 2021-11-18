@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:39:28 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/10 10:42:20 by cabouelw         ###   ########.fr       */
+/*   Created: 2021/11/16 13:50:01 by cabouelw          #+#    #+#             */
+/*   Updated: 2021/11/16 13:51:21 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wronganimal.hpp"
+
+#include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal()
 {
@@ -39,7 +40,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &cpy)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal Deconstructor called\n";
+	std::cout << "WrongAnimal Destructor called\n";
 }
 
 void	WrongAnimal::makeSound() const
