@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:54:33 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/17 17:02:32 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/18 19:00:33 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("greade is too high");
+	return ("grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("greade is too low");
+	return ("grade is too low");
 }
 
 Bureaucrat::~Bureaucrat()

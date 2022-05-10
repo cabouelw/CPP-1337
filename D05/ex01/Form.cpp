@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:06:15 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/17 21:38:15 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/18 19:02:04 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ Form::Form(const Form &cpy) : _name(cpy._name), _issigned(cpy._issigned), _grade
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("Exception greade is too high");
+	return ("Exception grade is too high");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("Exception greade is too low");
+	return ("Exception grade is too low");
 }
 
 Form::~Form()

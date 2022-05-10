@@ -6,62 +6,59 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 13:43:07 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/21 15:01:14 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:46:10 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-
-int main()
+#define MAX_VAL 750
+int main(int, char**)
 {
-	int size = 5;
-	int idx = 0;
-	Array<int>  array;
-	Array<int>	array1(size);
+	Array<int> numbers(MAX_VAL);
+	int* mirror = new int[MAX_VAL];
+	srand(time(NULL));
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		const int value = rand();
+		numbers[i] = value;
+		mirror[i] = value;
+	}
+	//SCOPE
+	{
+		Array<int> tmp = numbers;
+		Array<int> test(tmp);
+	}
 
-	Array<char>	array3(size);
-	
-	while (idx < size)
+	for (int i = 0; i < MAX_VAL; i++)
 	{
-		array1[idx] = 1337 + idx;
-		idx++;
+		if (mirror[i] != numbers[i])
+		{
+			std::cerr << "didn't save the same value!!" << std::endl;
+			return 1;
+		}
 	}
-	idx = 0;
-	while (idx < size)
-	{
-		std::cout << array1[idx++] << std::endl;
-	}
-	idx = 0;
-	std::cout << std::endl;
-	while (idx < size)
-	{
-		array3[idx] = ('0' + idx);
-		idx++;
-	}
-	idx = 0;
-	while (idx < size)
-	{
-		std::cout << array3[idx++] << std::endl;
-	}
-	std::cout << std::endl;
 	try
 	{
-		std::cout << array.size() << std::endl;
-		array[5] = 1;
+		numbers[-2] = 0;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-	std::cout << std::endl;
 	try
 	{
-		std::cout << array1.size() << std::endl;
-		array1[5] = 1;
+		numbers[MAX_VAL] = 0;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		numbers[i] = rand();
+	}
+	std::cout << numbers.size() << '\n';
+	delete [] mirror;//
+	return 0;
 }

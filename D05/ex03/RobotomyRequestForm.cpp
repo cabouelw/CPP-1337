@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:23 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/18 13:56:09 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/19 11:20:10 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	RobotomyRequestForm::Action() const
 	int random;
 
 	std::cout << "* Drilling noise * \n";
+	srand(time(NULL));
 	random = rand() % 2;
 	if (random)
 		std::cout << _target << " has been robotomized successfully\n";

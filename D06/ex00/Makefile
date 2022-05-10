@@ -6,13 +6,13 @@
 #    By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 11:32:21 by cabouelw          #+#    #+#              #
-#    Updated: 2021/11/19 18:22:29 by cabouelw         ###   ########.fr        #
+#    Updated: 2021/11/20 17:37:43 by cabouelw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = convert
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -ggdb
 SRC =	main.cpp\
 		Cast.cpp\
 

@@ -6,18 +6,19 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:30 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/18 14:09:05 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/18 19:11:56 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREAUESTFORM_HPP
-# define ROBOTOMYREAUESTFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 #include <string>
 #include <iostream>
 #include <exception>
 #include <fstream>
 #include "Form.hpp"
+#include <time.h>
 
 class RobotomyRequestForm : public Form
 {

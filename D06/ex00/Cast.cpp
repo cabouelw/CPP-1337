@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:42:53 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/20 13:47:42 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/20 17:46:57 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,32 @@ types::~types()
 {
 }
 
+bool is_digit(std::string &s)
+{
+	int idx = 0;
+	bool point = false;
+
+	if (s[idx] == '-' || s[idx] == '+')
+		idx++;
+	if (!s[idx])
+		return (false);
+	while (s[idx])
+	{
+		if (isdigit(s[idx]))
+			idx++;
+		else if (s[idx] == '.' && !point)
+		{
+			point = true;
+			idx++;
+		}
+		else if (idx == (int)(s.length() - 1) && s[idx] == 'f')
+			return (true);
+		else
+			return (false);
+	}
+	return (true);
+}
+
 bool	outRang(std::string &str)
 {
 	long int	l_int = 0;
@@ -49,37 +75,38 @@ bool	outRang(std::string &str)
 
 bool	types::checker()
 {
-	int		idx;
-	bool	point;
+	int		idx = 0;
+	bool	point = false;
 
-	idx = 0;
-	point = false;
-	if ((this->_str[0] == '+' || this->_str[0] == '-'))
+	if ((this->_str[idx] == '+' || this->_str[idx] == '-'))
 		idx++;
-	if (!this->_str[1])
-		return (false);
+	if (!this->_str[idx])
+		return (true);
 	while (this->_str[idx])
 	{
-		if (!isdigit(this->_str[idx]) && this->_str[idx] != 'f' && idx == (int)(this->_str.length() - 1))
+		if (this->_str[idx] == 'f' && this->_str[idx - 1] && (isdigit(this->_str[idx - 1]) || this->_str[idx - 1] == '.'))
 			return (true);
-		if (this->_str[idx] == 'f' && idx == (static_cast<int>(this->_str.length()) - 1))
+		else if (idx == 0 && isalpha(this->_str[idx]) && !this->_str[idx + 1])
+			return (true);
+		else if (idx >= 1 && isalpha(this->_str[idx]) && this->_str[idx] != 'f')
 			return (false);
-		else if (!point && this->_str[idx] == '.')
+		else if (this->_str[idx] == '.' && !point)
 		{
-			idx++;
 			point = true;
-		}
-		else if (!isdigit(this->_str[idx]))
-			return (true);
-		else
 			idx++;
+		}
+		else if (isdigit(this->_str[idx]))
+			idx++;
+		else if (idx > 0 && isprint(this->_str[idx]))
+			return (false);
 	}
-	return (false);
+	return (true);
 }
 
 int	types::is_science()
 {
 	int i = 0;
+
 	std::string	sciencef[] = {"-inff", "+inff", "nanf"};
 	std::string	science[] = {"-inf", "+inf", "nan"};
 
@@ -91,25 +118,27 @@ int	types::is_science()
 			return (2);
 		i++;
 	}
+	if (!isdigit(this->_str[0]) && this->_str.length() > 1 && this->_str[0] != '+' && this->_str[0] != '-')
+		return (3);
 	return (0);
 }
 
 void	types::toChar()
 {
 	std::cout <<  "char: ";
-	if ((isdigit(this->_str[0]) && outRang(this->_str))  || this->is_science())
+	if ((is_digit(this->_str) && outRang(this->_str))  || this->is_science())
 		std::cout <<  "impossible\n";
-	else if (!this->checker())
+	else if (this->_str.length() == 1 && !isdigit(this->_str[0]))
+		std::cout << "'" << this->_str[0] << "'\n";
+	else if (is_digit(this->_str) && !isprint(stoi(this->_str)))
+		std::cout << "Non displayable" << std::endl;
+	else if (this->checker())
 	{
-		if (isdigit(this->_str[0]) && isprint(stoi(this->_str)))
+		if (is_digit(this->_str) && isprint(stoi(this->_str)))
 			std::cout << "'" << static_cast<char>(stoi(this->_str)) << "'\n";
-		else if (isprint(this->_str[0]) && this->_str.length() == 1 && !isdigit(this->_str[0]))
-			std::cout << "'" << this->_str[0] << "'\n";
-		else
+		else if (is_digit(this->_str))
 			std::cout << "Non displayable" << std::endl;
 	}
-	else if (this->_str.length() == 1 && isprint(this->_str[0]))
-		std::cout << "'" << this->_str[0] << "'\n";
 	else
 		std::cout << "impossible\n";
 }
@@ -119,12 +148,14 @@ void	types::toInt()
 	std::cout <<  "int: ";
 	if ((isdigit(this->_str[0]) && outRang(this->_str))  || this->is_science())
 		std::cout <<  "impossible\n";
-	else if (!this->checker() && isdigit(this->_str[0]))
+	else if (is_digit(this->_str))
 		std::cout << static_cast<int>(stoi(this->_str)) << "\n";
 	else if (this->_str.length() == 1 && isdigit(this->_str[0]))
 		std::cout << this->_str[0] << "\n";
 	else if (this->_str.length() == 1 && isprint(this->_str[0]))
 		std::cout << static_cast<int>(this->_str[0]) << "\n";
+	else if (!this->checker() && is_digit(this->_str))
+		std::cout << static_cast<int>(stoi(this->_str)) << "\n";
 	else
 		std::cout << "impossible\n";
 }
@@ -136,12 +167,17 @@ void types::toDouble()
 		std::cout <<  "impossible\n";
 	else if (this->is_science())
 	{
-		if (this->is_science() == 2)
+		int res = this->is_science();
+		if (res == 2)
 			std::cout << this->_str.substr(0 , this->_str.length() - 1) + "\n";
-		else
+		else if (res == 1)
 			std::cout << this->_str <<  "\n";
+		else
+			std::cout <<  "impossible\n";
 	}
-	else if (!this->checker() && isdigit(this->_str[0]))
+	else if (isprint(this->_str[0]) && this->_str.length() == 1 && !is_digit(this->_str))
+		std::cout << static_cast<float>(this->_str[0])<< ".0\n";
+	else if (this->checker() && is_digit(this->_str))
 	{
 		double d = static_cast<double>(stod(this->_str));
 		double f = d - static_cast<int>(stod(this->_str));
@@ -150,8 +186,6 @@ void types::toDouble()
 		else
 			std::cout << static_cast<double>(stod(this->_str)) << ".0\n";
 	}
-	else if (isprint(this->_str[0]) && this->_str.length() == 1)
-		std::cout << static_cast<float>(this->_str[0])<< ".0\n";
 	else
 		std::cout << "impossible\n";
 }
@@ -163,12 +197,15 @@ void types::toFloat()
 		std::cout <<  "impossible\n";
 	else if (this->is_science())
 	{
-		if (this->is_science() == 2)
+		int res = this->is_science();
+		if (res == 2)
 			std::cout << this->_str + "\n";
-		else
+		else if (res == 1)
 			std::cout << this->_str <<  "f\n";
+		else
+			std::cout <<  "impossible\n";
 	}
-	else if (!this->checker() && isdigit(this->_str[0]))
+	else if (is_digit(this->_str))
 	{
 		float d = static_cast<float>(stof(this->_str));
 		float f = d - static_cast<int>(stof(this->_str));

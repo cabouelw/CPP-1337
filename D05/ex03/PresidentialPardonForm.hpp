@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:55 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/18 14:22:30 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/18 14:07:52 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ class PresidentialPardonForm : public Form
 		~PresidentialPardonForm();
 		virtual void	Action() const;
 };
+std::ostream	&operator<<(std::ostream &, PresidentialPardonForm const &);
 
 #endif

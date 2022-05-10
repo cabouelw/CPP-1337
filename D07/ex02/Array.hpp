@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 12:09:35 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/21 14:53:11 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:19:25 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Array
 		{
 			if (this == &cpy)
 				return (*this);
-			int idx = 0;
+			unsigned int idx = 0;
 			delete[] this->_elements;
 			_elements = new T[cpy.len]();
 			this->len = cpy.len;

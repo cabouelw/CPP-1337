@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:21:19 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/11/18 17:06:25 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/11/18 19:30:55 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ Intern::Intern()
 
 Intern& Intern::operator=(const Intern &cpy)
 {
-	if (this == &cpy)
-		return (*this);
-	*this = cpy;
+	(void)cpy;
 	return (*this);
 }
 
@@ -31,6 +29,11 @@ Intern::Intern(const Intern &cpy)
 
 Intern::~Intern()
 {
+}
+
+const char* Intern::FormNotFoundException::what() const throw()
+{
+	return ("Exception form not found!!");
 }
 
 Form *GetPresident(std::string target)
@@ -64,6 +67,6 @@ Form	*Intern::makeForm(std::string form, std::string target)
 		}
 		i++;
 	}
-	std::cout << form << " don't exist" << std::endl;
+	throw FormNotFoundException();
 	return (NULL);
 }
